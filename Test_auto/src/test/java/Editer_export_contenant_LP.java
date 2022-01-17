@@ -94,7 +94,7 @@ public class Editer_export_contenant_LP {
 
 	}
 
-	//@After
+	@After
 	public void quitBrowser() throws IOException {
 		driver.close();
 

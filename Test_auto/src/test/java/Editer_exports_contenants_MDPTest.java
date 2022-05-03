@@ -11,7 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 
-public class Editer_export_contenant_LPTest {
+public class Editer_exports_contenants_MDPTest {
 
 	public  WebDriver driver;
 	public  String main_window;
@@ -20,7 +20,7 @@ public class Editer_export_contenant_LPTest {
 	public String dlFile = "C:\\Users\\kevin.marionneau\\Desktop\\DossierDLTestAuto";
 
 	//Nom du fichier à télécharger
-	public String nomFichier = "Prév_Contenants_LP";
+	public String nomFichier = "Prév_Contenants_MDP";
 
 
 	@Before
@@ -86,7 +86,7 @@ public class Editer_export_contenant_LPTest {
 		assertEquals("Le tableau Prévisions n'est pas affiché", "Prévisions", pagePrevision.getTextTableau1());
 
 		//Télécharger l'export LP
-		pagePrevision.cliquerBtnExportLP();
+		pagePrevision.cliquerBtnExportMDP();
 		Thread.sleep(5000);
 
 		//Vérifier que le fichier d'export LP existe

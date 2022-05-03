@@ -11,7 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 
-public class Editer_export_contenant_LPTest {
+public class Imprimer_PlanningTest {
 
 	public  WebDriver driver;
 	public  String main_window;
@@ -20,7 +20,7 @@ public class Editer_export_contenant_LPTest {
 	public String dlFile = "C:\\Users\\kevin.marionneau\\Desktop\\DossierDLTestAuto";
 
 	//Nom du fichier à télécharger
-	public String nomFichier = "Prév_Contenants_LP";
+	public String nomFichier = "Planning-Meca-MM41B0";
 
 
 	@Before
@@ -78,18 +78,15 @@ public class Editer_export_contenant_LPTest {
 		//Vérifier qu'on est sur la page de Mécanisation
 		assertEquals("La page n'est pas la page de mécanisation. Il s'agit de " + Boite_a_Outil.URL(driver),"http://logiappzqua1.mediapost.fr:7088/mecanisation2Web/common/accueil.jsf",Boite_a_Outil.URL(driver));
 
-		//Aller sur la page Prévisions
-		Page_Prevision pagePrevision = pageVisualisationPlannings.ecranPrevision();
-		Thread.sleep(10000);
+		//Cliquer sur le bouton Impression pour voir la liste des impressions disponibles
+		pageVisualisationPlannings.cliquerBtnImpression();
+		Thread.sleep(1000);
+		
+		//Sélectionner Planning - Synthese dans la liste des impressions
+		pageVisualisationPlannings.selectionnerPlanningSynthese();
+		Thread.sleep(1000);
 
-		//Vérifier qu'on est sur la page Prévision
-		assertEquals("Le tableau Prévisions n'est pas affiché", "Prévisions", pagePrevision.getTextTableau1());
-
-		//Télécharger l'export LP
-		pagePrevision.cliquerBtnExportLP();
-		Thread.sleep(5000);
-
-		//Vérifier que le fichier d'export LP existe
+		//Vérifier que le fichier Plaaning Synthese existe
 		assertTrue(Boite_a_Outil.verifierFichierExistant(dlFile, nomFichier));
 
 	}

@@ -11,6 +11,12 @@ public class Page_Prevision {
 	//Bouton Export cont. LP
 	private By btnExportLP = By.xpath("//button[contains(@id,'j_id_1x')]");
 	
+	//Bouton Export cont. MDP
+	private By btnExportMDP = By.xpath("//button[contains(@id,'j_id_23')]");
+	
+	//Bouton Export double tour
+	private By btnExportDoubleTour = By.xpath("//button[contains(@id,'j_id_1z')]");
+	
 	public Page_Prevision(WebDriver driver) {
 		this.driver = driver;
 	}
@@ -22,6 +28,14 @@ public class Page_Prevision {
 	
 	public void cliquerBtnExportLP() {
 		driver.findElement(btnExportLP).click();
+	}
+	
+	public void cliquerBtnExportMDP() {
+		driver.findElement(btnExportMDP).click();
+	}
+	
+	public void cliquerBtnExportDoubleTour() {
+		driver.findElement(btnExportDoubleTour).click();
 	}
 	
 }

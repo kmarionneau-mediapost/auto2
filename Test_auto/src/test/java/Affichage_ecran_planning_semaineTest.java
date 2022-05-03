@@ -1,4 +1,5 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.concurrent.TimeUnit;
 
@@ -8,7 +9,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class Affichage_Ecran_PrevisionsTest {
+public class Affichage_ecran_planning_semaineTest {
 
 	public  WebDriver driver;
 	public  String main_window;
@@ -60,12 +61,8 @@ public class Affichage_Ecran_PrevisionsTest {
 		//Vérifier qu'on est sur la page de Mécanisation
 		assertEquals(Boite_a_Outil.URL(driver),"http://logiappzqua1.mediapost.fr:7088/mecanisation2Web/common/accueil.jsf");
 
-		//Aller sur la page Prévisions
-		Page_Prevision pagePrevision = pageVisualisationPlannings.ecranPrevision();
-		Thread.sleep(10000);
-
-		//Vérifier qu'on est sur la page Prévision
-		assertEquals(pagePrevision.getTextTableau1(),"Prévisions");
+		//Vérifier que le planning est sur la semaine
+		assertTrue(pageVisualisationPlannings.verifierBoutonSemaineActif());
 	}
 
 	@After

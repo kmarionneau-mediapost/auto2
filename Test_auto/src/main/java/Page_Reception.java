@@ -12,9 +12,9 @@ public class Page_Reception {
 		this.driver = driver;
 	}
 
-	public Page_Mecanisation passerSurMecanisation() {
+	public Page_VisualisationPlannings passerSurVisualisationPlannings() {
 		driver.findElement(btnMecanisation).click();
-		return new Page_Mecanisation(driver);
+		return new Page_VisualisationPlannings(driver);
 	}
 
 }
